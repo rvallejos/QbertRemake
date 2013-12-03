@@ -4,6 +4,10 @@ var player : Transform;
 
 var accumColor : float = 0;
 
+var increment : float = 0.03;
+var decrement : float = 0;
+var radius : float = 3;
+
 function Start () {
 
 }
@@ -12,11 +16,11 @@ function Update () {
 
 	var dist : float = Vector3.Distance(this.transform.position, player.position);
 
-		if (dist < 3) {
+		if (dist < radius) {
 
-			accumColor += 0.03;
+			accumColor += increment;
 			}else{
-			accumColor -= 0.01;
+			accumColor -= decrement;
 		}
 	
 		if (accumColor > 1){
