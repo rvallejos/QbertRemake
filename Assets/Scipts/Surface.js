@@ -9,6 +9,10 @@ var decrement : float = 0.00005;
 var radius : float = 3;
 var counter : int = 0;
 var startColor : Color = Color(0, 1.0, 1.0,1);
+
+var timer:float = 30.0;
+var timeExp:boolean = false;
+
 function Start () {
 
 }
@@ -22,6 +26,13 @@ function OnCollisionEnter(collision:Collision)
 }
 
 function Update () {
+
+	if(timer <= 0){
+		timer = 0;
+		timeExp = true;
+	} else {
+		timer -=Time.deltaTime;
+	}
 
 	var dist : float = Vector3.Distance(this.transform.position, player.position);
 
@@ -52,8 +63,30 @@ function Update () {
 //	else{
 //		counter--;
 //	}
-	if(counter >= 21) Debug.Log("You Won!");
-	//if(counter < 21) 
-	else Debug.Log("Keep going");
+	if(counter >= 21) {
+		//Do Something Here
+		GUI.Label(Rect (10,10,150,30),"You Win!");
+		if (GUI.Button (Rect (20,40,80,20), "Restart")) {
+			restartLevel();
+		}
+	
+	}
 
+}
+
+
+function OnGUI(){
+	if(timeExp){
+		//Do Something Here
+		GUI.Label(Rect (10,10,150,30),"Time's Up! You lose!");
+		if (GUI.Button (Rect (20,40,80,20), "Restart")) {
+			restartLevel();
+		}
+	} else {
+		GUI.Label(Rect (10,10,100,30),"Time Left: " + timer.ToString("0")+"s");
+	}
+}
+
+function restartLevel(){
+	Application.LoadLevel(Application.loadedLevel);
 }
