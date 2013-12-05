@@ -5,9 +5,10 @@ var player : Transform;
 var accumColor : float = 0;
 
 var increment : float = 0.03;
-var decrement : float = 0.001;
+var decrement : float = 0.00005;
 var radius : float = 3;
-
+var counter : int = 0;
+var startColor : Color = Color(0, 1.0, 0.25,1);
 function Start () {
 
 }
@@ -43,9 +44,15 @@ function Update () {
 		}
 	
 	
-	var myColor : Color = Color(0,accumColor + .5,accumColor - .75,1);
+	var myColor : Color = Color(0,accumColor + .5, accumColor - .75,1); //accumColor - .75
 	renderer.material.color = myColor;
-	
-	 
+	if(startColor==myColor){
+		counter++;
+	}
+//	else{
+//		counter--;
+//	}
+	if(counter >= 21) Debug.Log("You Won!");
+	if(counter < 21) Debug.Log("Keep going!");
 
 }
