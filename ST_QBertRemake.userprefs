@@ -1,18 +1,10 @@
 ﻿<Properties>
-<<<<<<< HEAD
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scipts/UI.js">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scipts/Surface.js">
     <Files>
-      <File FileName="Assets/Standard Assets/Character Controllers/Sources/Scripts/ThirdPersonController.js" Line="324" Column="5" />
-      <File FileName="Assets/Standard Assets/Character Controllers/Sources/Scripts/ThirdPersonCamera.js" Line="1" Column="1" />
-      <File FileName="Assets/Scipts/Surface.js" Line="1" Column="1" />
-      <File FileName="Assets/Scipts/UI.js" Line="3" Column="20" />
+      <File FileName="Assets/Scipts/Surface.js" Line="55" Column="16" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-=======
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench />
->>>>>>> 254418702352892b0c0c7657aefb4596638faa62
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
