@@ -5,7 +5,7 @@ var player : Transform;
 var accumColor : float = 0;
 
 var increment : float = 0.03;
-var decrement : float = 0;
+var decrement : float = 0.001;
 var radius : float = 3;
 
 function Start () {
