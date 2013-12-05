@@ -12,6 +12,14 @@ function Start () {
 
 }
 
+function OnCollisionEnter(collision:Collision)
+{
+    if( collision.gameObject.tag == "construction_worker" )
+    {
+        Destroy(collision.gameObject);
+    }
+}
+
 function Update () {
 
 	var dist : float = Vector3.Distance(this.transform.position, player.position);
