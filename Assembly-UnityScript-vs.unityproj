@@ -52,7 +52,7 @@
      <Compile Include="Assets\Scripts\Level_1_Map.js" />
      <Compile Include="Assets\Scripts\PauseScript.js" />
      <Compile Include="Assets\Scripts\Player.js" />
-     <Compile Include="Assets\Scripts\SurfaceNOTUSED.js" />
+     <Compile Include="Assets\Scripts\SurfaceColor.js" />
      <Compile Include="Assets\Scripts\Testing.js" />
      <Compile Include="Assets\Scripts\TitleGUI.js" />
      <Compile Include="Assets\Scripts\UI.js" />
