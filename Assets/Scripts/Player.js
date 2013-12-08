@@ -4,14 +4,12 @@ var currentSurface:GameObject = null;
 var player:GameObject;
 
 function Start () {
+	// Place player on starting surface
 	if (currentSurface != null){
-		Debug.Log(player.transform.position.x);
-		player.transform.position = new Vector3(currentSurface.transform.position.x,currentSurface.transform.position.y+.1,currentSurface.transform.position.z);
-		Debug.Log(player.transform.position.x);
-		
+		player.transform.position = new Vector3(currentSurface.transform.position.x,currentSurface.transform.position.y,currentSurface.transform.position.z);	
 	}
 }
 
 function Update () {
-	Debug.Log(player.transform.position.x);
+
 }

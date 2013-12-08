@@ -5,11 +5,16 @@ ModelImporter:
   fileIDToRecycleName:
     100000: Layer_03
     100002: //RootNode
+    100004: Default
     400000: Layer_03
     400002: //RootNode
+    400004: Default
     2300000: Layer_03
+    2300002: Default
     3300000: Layer_03
+    3300002: Default
     4300000: Layer_03
+    4300002: Default
     9500000: //RootNode
   materials:
     importMaterials: 1
