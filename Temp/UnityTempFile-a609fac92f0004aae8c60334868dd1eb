@@ -47,8 +47,12 @@
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll'
 -i:UnityEditor
 'Assets/Scripts/CollisionScript.js'
+'Assets/Scripts/CreditsScript.js'
+'Assets/Scripts/HowtoScript.js'
 'Assets/Scripts/Level_1_Map.js'
+'Assets/Scripts/PauseScript.js'
 'Assets/Scripts/Player.js'
 'Assets/Scripts/Surface.js'
 'Assets/Scripts/Testing.js'
+'Assets/Scripts/TitleGUI.js'
 'Assets/Scripts/UI.js'
