@@ -13,14 +13,21 @@ var startColor : Color = Color(0, 1.0, 1.0,1);
 var timer:float = 30.0;
 var timeExp:boolean = false;
 
+var up:GameObject = null;
+var down:GameObject = null;
+var left:GameObject = null;
+var right:GameObject = null;
+var upleft:GameObject = null;
+var upright:GameObject = null;
+var downleft:GameObject = null;
+var downright:GameObject = null;
+
 function Start () {
 
 }
 
-function OnCollisionEnter(collision:Collision)
-{
-    if( collision.gameObject.tag == "player" )
-    {
+function OnCollisionEnter(collision:Collision){
+    if( collision.gameObject.tag == "player" ){
         Destroy(collision.gameObject);
     }
 }
