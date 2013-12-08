@@ -6,6 +6,7 @@ public class GUISystem : MonoBehaviour {
 	delegate void GUIFunction();
 	private GUIFunction currentGUI;
 	bool isPause = false;
+	int diff = 1;
 	int buttonWidth = 200;
 	int buttonHeight = 50;
 	int creditsHeight = 200;
@@ -78,20 +79,26 @@ public class GUISystem : MonoBehaviour {
 		string text = "Controls: WASD or Arrow Keys to move. P to Pause.\n\nGoal: Light up all the platforms, while avoiding all the enemies.";
 
 		GUILayout.BeginArea(new Rect(Screen.width / 2.0f - 200, Screen.height/2 - 100, 400, 500));
-		GUILayout.Box(text); //controls
-		if(GUILayout.Button("Back")){
-			currentGUI = MainMenuGUI;
-		}
+			GUILayout.Box(text); //controls
+			if(GUILayout.Button("Back")){
+				currentGUI = MainMenuGUI;
+			}
 		GUILayout.EndArea();
 	}
 
 	void OptionsGUI(){
 		GUILayout.BeginArea(new Rect(Screen.width / 2.0f - 100, 200, 200, 500));
-		GUILayout.Box("Global Volume: " + string.Format("{0:0.00}", AudioListener.volume));
-		AudioListener.volume = GUILayout.HorizontalSlider(AudioListener.volume, 0.0f, 1.0f);
-		if(GUILayout.Button("Back")){
-			currentGUI = MainMenuGUI;
-		}
+			GUILayout.Box("Global Volume: " + string.Format("{0:0.00}", AudioListener.volume));
+			AudioListener.volume = GUILayout.HorizontalSlider(AudioListener.volume, 0.0f, 1.0f);
+			if(GUILayout.Button("Normal")){
+				diff = 1;
+			}
+			if(GUILayout.Button("Hard")){
+				diff = 2;
+			}
+			if(GUILayout.Button("Back")){
+				currentGUI = MainMenuGUI;
+			}
 		GUILayout.EndArea();
 	}
 
