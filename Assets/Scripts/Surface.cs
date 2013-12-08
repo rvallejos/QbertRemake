@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Surface2 : MonoBehaviour {
+public class Surface : MonoBehaviour {
 
 
 	private float accumColor = 0f;
@@ -15,14 +15,14 @@ public class Surface2 : MonoBehaviour {
 	private float timer = 30.0f;
 	private bool timeExp = false;
 	
-	public Surface2 up = null;
-	public Surface2 down = null;
-	public Surface2 left = null;
-	public Surface2 right = null;
-	public Surface2 upleft = null;
-	public Surface2 upright = null;
-	public Surface2 downleft = null;
-	public Surface2 downright = null;
+	public Surface up = null;
+	public Surface down = null;
+	public Surface left = null;
+	public Surface right = null;
+	public Surface upleft = null;
+	public Surface upright = null;
+	public Surface downleft = null;
+	public Surface downright = null;
 
 	// Use this for initialization
 	void Start () {
@@ -31,6 +31,7 @@ public class Surface2 : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+
 	}
+
 }
