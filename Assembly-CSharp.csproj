@@ -46,6 +46,8 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\GUIMaker.cs" />
+     <Compile Include="Assets\Scripts\GUISystem.cs" />
      <Compile Include="Assets\Scripts\PianoKeyScript.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Surface.cs" />

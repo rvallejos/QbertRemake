@@ -10,8 +10,7 @@ public class PlayerController : MonoBehaviour {
 
 	private bool canMove = true;
 	private float maxHeight = 1.5f;
-	private int diff = 1;
-
+	private int diff = 0;
 
 	// Use this for initialization
 	private void Start () {
@@ -22,8 +21,10 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	private void Update () {
-
 		if (canMove) {
+			GameObject GUIScript = GameObject.Find("OptionsScript");
+			Debug.Log(GUIScript);
+
 			float negMaxHeight = maxHeight * -1;
 			//	Left
 			if (Input.GetKeyDown (KeyCode.A)) {
