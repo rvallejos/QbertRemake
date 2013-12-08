@@ -1,14 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scipts\Surface.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GUISystem.cs">
     <Files>
-      <File FileName="Assets\Scipts\UI.js" Line="25" Column="68" />
-      <File FileName="Assets\Scipts\Surface.js" Line="57" Column="28" />
-      <File FileName="Assets\Scipts\TestController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GUISystem.cs" Line="97" Column="14" />
+      <File FileName="Assets\Scripts\GUIMaker.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Character Controllers\Sources\Scripts\ThirdPersonController.js" Line="1" Column="1" />
-      <File FileName="Assets\Scipts\PianoKeyScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scipts\CollisionScript.js" Line="1" Column="1" />
-      <File FileName="Assets\Scipts\UI.js" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
