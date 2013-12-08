@@ -31,12 +31,12 @@ function OnGUI(){
 	}
 	//Button for options
 	if(GUI.Button(Rect(Screen.width/2 - buttonWidth/2, newHeight + 50, buttonWidth, buttonHeight),"How to play")){
-		
+		Application.LoadLevel("How_to_play");
 	}
 	if(GUI.Button(Rect(Screen.width/2 - buttonWidth/2, newHeight + 100, buttonWidth, buttonHeight),"Options")){
 		
 	}
 	if(GUI.Button(Rect(Screen.width/2 - buttonWidth/2, newHeight + 150, buttonWidth, buttonHeight),"Credits")){
-		
+		Application.LoadLevel("Credits");
 	}
 }
