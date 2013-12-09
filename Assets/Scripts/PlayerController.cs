@@ -12,6 +12,15 @@ public class PlayerController : MonoBehaviour {
 	private float maxHeight = 1.5f;
 	private int diff = 0;
 
+	public AudioClip upSound = null;
+	public AudioClip downSound = null;
+	public AudioClip leftSound = null;
+	public AudioClip rightSound = null;
+	public AudioClip upleftSound = null;
+	public AudioClip uprightSound = null;
+	public AudioClip downleftSound = null;
+	public AudioClip downrightSound = null;
+
 	// Use this for initialization
 	private void Start () {
 		if (curSurface != null) {
@@ -22,16 +31,13 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	private void Update () {
 		if (canMove) {
-			GameObject GUIScript = GameObject.Find("OptionsScript");
-			Debug.Log(GUIScript);
-
 			float negMaxHeight = maxHeight * -1;
 			//	Left
 			if (Input.GetKeyDown (KeyCode.A)) {
 				Surface nextSurface = curSurface.left;
 				if(nextSurface == null && diff > 1){
 					if(diff>=2){
-						iTween.MoveTo(gameObject, iTween.Hash("y" , curSurface.transform.position.y+.75, "x",curSurface.transform.position.x+2.5, "z", curSurface.transform.position.z,"onstart","playerCantMove", "oncomplete", "playerCanMove"));
+						iTween.MoveTo(gameObject, iTween.Hash("y" , curSurface.transform.position.y+2 , "x",curSurface.transform.position.x+2.5, "z", curSurface.transform.position.z,"onstart","playerCantMove", "oncomplete", "playerCanMove"));
 					} else {
 						Debug.Log("Normal: Can't Go");
 					}
@@ -39,7 +45,8 @@ public class PlayerController : MonoBehaviour {
 					float jumpHeight = nextSurface.transform.position.y - curSurface.transform.position.y;
 					Debug.Log ("Height: "+jumpHeight);
 					if(jumpHeight < maxHeight && jumpHeight > negMaxHeight){
-						iTween.MoveTo(gameObject, iTween.Hash("y" , nextSurface.transform.position.y+.75, "x",nextSurface.transform.position.x, "z", nextSurface.transform.position.z,"onstart","playerCantMove", "oncomplete", "playerCanMove"));
+						iTween.RotateTo(gameObject, iTween.Hash("y",90,"oncomplete","jumpToSurface","time",.1f, "oncompleteparams",nextSurface));
+						iTween.Stab(gameObject, leftSound,0f);
 						curSurface = nextSurface;
 					} else {
 						Debug.Log("Too High");
@@ -51,7 +58,7 @@ public class PlayerController : MonoBehaviour {
 				Surface nextSurface = curSurface.right;
 				if(nextSurface == null && diff > 1){
 					if(diff>=2){
-						iTween.MoveTo(gameObject, iTween.Hash("y" , curSurface.transform.position.y+.75, "x",curSurface.transform.position.x-2.5, "z", curSurface.transform.position.z,"onstart","playerCantMove", "oncomplete", "playerCanMove"));
+						iTween.MoveTo(gameObject, iTween.Hash("y" , curSurface.transform.position.y+2, "x",curSurface.transform.position.x-2.5, "z", curSurface.transform.position.z,"onstart","playerCantMove", "oncomplete", "playerCanMove"));
 					} else {
 						Debug.Log("Normal: Can't Go");
 					}
@@ -59,7 +66,9 @@ public class PlayerController : MonoBehaviour {
 					float jumpHeight = nextSurface.transform.position.y - curSurface.transform.position.y;
 					Debug.Log ("Height: "+jumpHeight);
 					if(jumpHeight < maxHeight && jumpHeight > negMaxHeight){
-						iTween.MoveTo(gameObject, iTween.Hash("y" , nextSurface.transform.position.y+.75, "x",nextSurface.transform.position.x, "z", nextSurface.transform.position.z,"onstart","playerCantMove", "oncomplete", "playerCanMove"));
+						//iTween.MoveTo(gameObject, iTween.Hash("y" , nextSurface.transform.position.y+.75, "x",nextSurface.transform.position.x, "z", nextSurface.transform.position.z,"onstart","playerCantMove", "oncomplete", "playerCanMove"));
+						iTween.RotateTo(gameObject, iTween.Hash("y",270,"oncomplete","jumpToSurface","time",.1f, "oncompleteparams",nextSurface));
+						iTween.Stab(gameObject, rightSound,0f);
 						curSurface = nextSurface;
 					} else {
 						Debug.Log("Too High");
@@ -71,7 +80,7 @@ public class PlayerController : MonoBehaviour {
 				Surface nextSurface = curSurface.up;
 				if(nextSurface == null && diff > 1){
 					if(diff>=2 && nextSurface == null){
-						iTween.MoveTo(gameObject, iTween.Hash("y" , curSurface.transform.position.y+.75, "x",curSurface.transform.position.x, "z", curSurface.transform.position.z-2.5,"onstart","playerCantMove", "oncomplete", "playerCanMove"));
+						iTween.MoveTo(gameObject, iTween.Hash("y" , curSurface.transform.position.y+2, "x",curSurface.transform.position.x, "z", curSurface.transform.position.z-2.5,"onstart","playerCantMove", "oncomplete", "playerCanMove"));
 					} else {
 						Debug.Log("Normal: Can't Go");
 					}
@@ -79,7 +88,9 @@ public class PlayerController : MonoBehaviour {
 					float jumpHeight = nextSurface.transform.position.y - curSurface.transform.position.y;
 					Debug.Log ("Height: "+jumpHeight);
 					if(jumpHeight < maxHeight && jumpHeight > negMaxHeight){
-						iTween.MoveTo(gameObject, iTween.Hash("y" , nextSurface.transform.position.y+.75, "x",nextSurface.transform.position.x, "z", nextSurface.transform.position.z,"onstart","playerCantMove", "oncomplete", "playerCanMove"));
+						//iTween.MoveTo(gameObject, iTween.Hash("y" , nextSurface.transform.position.y+.75, "x",nextSurface.transform.position.x, "z", nextSurface.transform.position.z,"onstart","playerCantMove", "oncomplete", "playerCanMove"));
+						iTween.RotateTo(gameObject, iTween.Hash("y",180,"oncomplete","jumpToSurface","time",.1f, "oncompleteparams",nextSurface));
+						iTween.Stab(gameObject, upSound,0f);
 						curSurface = nextSurface;
 					} else {
 						Debug.Log("Too High");
@@ -91,7 +102,7 @@ public class PlayerController : MonoBehaviour {
 				Surface nextSurface = curSurface.down;
 				if(nextSurface == null && diff > 1){
 					if(diff>=2){
-						iTween.MoveTo(gameObject, iTween.Hash("y" , curSurface.transform.position.y+.75, "x",curSurface.transform.position.x, "z", curSurface.transform.position.z+2.5,"onstart","playerCantMove", "oncomplete", "playerCanMove"));
+						iTween.MoveTo(gameObject, iTween.Hash("y" , curSurface.transform.position.y+2, "x",curSurface.transform.position.x, "z", curSurface.transform.position.z+2.5,"onstart","playerCantMove", "oncomplete", "playerCanMove"));
 					} else {
 						Debug.Log("Normal: Can't Go");
 					}
@@ -99,7 +110,9 @@ public class PlayerController : MonoBehaviour {
 					float jumpHeight = nextSurface.transform.position.y - curSurface.transform.position.y;
 					Debug.Log ("Height: "+jumpHeight);
 					if(jumpHeight < maxHeight && jumpHeight > negMaxHeight){
-						iTween.MoveTo(gameObject, iTween.Hash("y" , nextSurface.transform.position.y+.75, "x",nextSurface.transform.position.x, "z", nextSurface.transform.position.z,"onstart","playerCantMove", "oncomplete", "playerCanMove"));
+						//iTween.MoveTo(gameObject, iTween.Hash("y" , nextSurface.transform.position.y+.75, "x",nextSurface.transform.position.x, "z", nextSurface.transform.position.z,"onstart","playerCantMove", "oncomplete", "playerCanMove"));
+						iTween.RotateTo(gameObject, iTween.Hash("y",0,"oncomplete","jumpToSurface","time",.1f, "oncompleteparams",nextSurface));
+						iTween.Stab(gameObject, downSound,0f);
 						curSurface = nextSurface;
 					} else {
 						Debug.Log("Too High");
@@ -111,7 +124,7 @@ public class PlayerController : MonoBehaviour {
 				Surface nextSurface = curSurface.upleft;
 				if(nextSurface == null && diff > 1){
 					if(diff>=2){
-						iTween.MoveTo(gameObject, iTween.Hash("y" , curSurface.transform.position.y+.75, "x",curSurface.transform.position.x+1.5, "z", curSurface.transform.position.z-1.5,"onstart","playerCantMove", "oncomplete", "playerCanMove"));
+						iTween.MoveTo(gameObject, iTween.Hash("y" , curSurface.transform.position.y+2, "x",curSurface.transform.position.x+1.5, "z", curSurface.transform.position.z-1.5,"onstart","playerCantMove", "oncomplete", "playerCanMove"));
 					} else {
 						Debug.Log("Normal: Can't Go");
 					}
@@ -119,7 +132,9 @@ public class PlayerController : MonoBehaviour {
 					float jumpHeight = nextSurface.transform.position.y - curSurface.transform.position.y;
 					Debug.Log ("Height: "+jumpHeight);
 					if(jumpHeight < maxHeight && jumpHeight > negMaxHeight){
-						iTween.MoveTo(gameObject, iTween.Hash("y" , nextSurface.transform.position.y+.75, "x",nextSurface.transform.position.x, "z", nextSurface.transform.position.z,"onstart","playerCantMove", "oncomplete", "playerCanMove"));
+						//iTween.MoveTo(gameObject, iTween.Hash("y" , nextSurface.transform.position.y+.75, "x",nextSurface.transform.position.x, "z", nextSurface.transform.position.z,"onstart","playerCantMove", "oncomplete", "playerCanMove"));
+						iTween.RotateTo(gameObject, iTween.Hash("y",135,"oncomplete","jumpToSurface","time",.1f, "oncompleteparams",nextSurface));
+						iTween.Stab(gameObject, upleftSound,0f);
 						curSurface = nextSurface;
 					} else {
 						Debug.Log("Too High");
@@ -131,7 +146,7 @@ public class PlayerController : MonoBehaviour {
 				Surface nextSurface = curSurface.upright;
 				if(nextSurface == null && diff > 1){
 					if(diff>=2){
-						iTween.MoveTo(gameObject, iTween.Hash("y" , curSurface.transform.position.y+.75, "x",curSurface.transform.position.x-1.5, "z", curSurface.transform.position.z-1.5,"onstart","playerCantMove", "oncomplete", "playerCanMove"));
+						iTween.MoveTo(gameObject, iTween.Hash("y" , curSurface.transform.position.y+2, "x",curSurface.transform.position.x-1.5, "z", curSurface.transform.position.z-1.5,"onstart","playerCantMove", "oncomplete", "playerCanMove"));
 					} else {
 						Debug.Log("Normal: Can't Go");
 					}
@@ -139,7 +154,9 @@ public class PlayerController : MonoBehaviour {
 					float jumpHeight = nextSurface.transform.position.y - curSurface.transform.position.y;
 					Debug.Log ("Height: "+jumpHeight);
 					if(jumpHeight < maxHeight && jumpHeight > negMaxHeight){
-						iTween.MoveTo(gameObject, iTween.Hash("y" , nextSurface.transform.position.y+.75, "x",nextSurface.transform.position.x, "z", nextSurface.transform.position.z,"onstart","playerCantMove", "oncomplete", "playerCanMove"));
+						//iTween.MoveTo(gameObject, iTween.Hash("y" , nextSurface.transform.position.y+.75, "x",nextSurface.transform.position.x, "z", nextSurface.transform.position.z,"onstart","playerCantMove", "oncomplete", "playerCanMove"));
+						iTween.RotateTo(gameObject, iTween.Hash("y",225,"oncomplete","jumpToSurface","time",.1f, "oncompleteparams",nextSurface));
+						iTween.Stab(gameObject, uprightSound,0f);
 						curSurface = nextSurface;
 					} else {
 						Debug.Log("Too High");
@@ -151,7 +168,7 @@ public class PlayerController : MonoBehaviour {
 				Surface nextSurface = curSurface.downleft;
 				if(nextSurface == null && diff > 1){
 					if(diff>=2){
-						iTween.MoveTo(gameObject, iTween.Hash("y" , curSurface.transform.position.y+.75, "x",curSurface.transform.position.x+1.5, "z", curSurface.transform.position.z+1.5,"onstart","playerCantMove", "oncomplete", "playerCanMove"));
+						iTween.MoveTo(gameObject, iTween.Hash("y" , curSurface.transform.position.y+2, "x",curSurface.transform.position.x+1.5, "z", curSurface.transform.position.z+1.5,"onstart","playerCantMove", "oncomplete", "playerCanMove"));
 					} else {
 						Debug.Log("Normal: Can't Go");
 					}
@@ -159,7 +176,9 @@ public class PlayerController : MonoBehaviour {
 					float jumpHeight = nextSurface.transform.position.y - curSurface.transform.position.y;
 					Debug.Log ("Height: "+jumpHeight);
 					if(jumpHeight < maxHeight && jumpHeight > negMaxHeight){
-						iTween.MoveTo(gameObject, iTween.Hash("y" , nextSurface.transform.position.y+.75, "x",nextSurface.transform.position.x, "z", nextSurface.transform.position.z,"onstart","playerCantMove", "oncomplete", "playerCanMove"));
+						//iTween.MoveTo(gameObject, iTween.Hash("y" , nextSurface.transform.position.y+.75, "x",nextSurface.transform.position.x, "z", nextSurface.transform.position.z,"onstart","playerCantMove", "oncomplete", "playerCanMove"));
+						iTween.RotateTo(gameObject, iTween.Hash("y",45,"oncomplete","jumpToSurface","time",.1f, "oncompleteparams",nextSurface));
+						iTween.Stab(gameObject, downleftSound,0f);
 						curSurface = nextSurface;
 					} else {
 						Debug.Log("Too High");
@@ -171,7 +190,7 @@ public class PlayerController : MonoBehaviour {
 				Surface nextSurface = curSurface.downright;
 				if(nextSurface == null && diff > 1){
 					if(diff>=2){
-						iTween.MoveTo(gameObject, iTween.Hash("y" , curSurface.transform.position.y+.75, "x",curSurface.transform.position.x-1.5, "z", curSurface.transform.position.z+1.5,"onstart","playerCantMove", "oncomplete", "playerCanMove"));
+						iTween.MoveTo(gameObject, iTween.Hash("y" , curSurface.transform.position.y+2, "x",curSurface.transform.position.x-1.5, "z", curSurface.transform.position.z+1.5,"onstart","playerCantMove", "oncomplete", "playerCanMove"));
 					} else {
 						Debug.Log("Normal: Can't Go");
 					}
@@ -179,7 +198,9 @@ public class PlayerController : MonoBehaviour {
 					float jumpHeight = nextSurface.transform.position.y - curSurface.transform.position.y;
 					Debug.Log ("Height: "+jumpHeight);
 					if(jumpHeight < maxHeight && jumpHeight > negMaxHeight){
-						iTween.MoveTo(gameObject, iTween.Hash("y" , nextSurface.transform.position.y+.75, "x",nextSurface.transform.position.x, "z", nextSurface.transform.position.z,"onstart","playerCantMove", "oncomplete", "playerCanMove"));
+						//iTween.MoveTo(gameObject, iTween.Hash("y" , nextSurface.transform.position.y+.75, "x",nextSurface.transform.position.x, "z", nextSurface.transform.position.z,"onstart","playerCantMove", "oncomplete", "playerCanMove"));
+						iTween.RotateTo(gameObject, iTween.Hash("y",315,"oncomplete","jumpToSurface","time",.1f, "oncompleteparams",nextSurface));
+						iTween.Stab(gameObject, downrightSound,0f);
 						curSurface = nextSurface;
 					} else {
 						Debug.Log("Too High");
@@ -188,6 +209,10 @@ public class PlayerController : MonoBehaviour {
 			}
 
 		}
+	}
+
+	private void jumpToSurface(Surface nextSurface){
+		iTween.MoveTo(gameObject, iTween.Hash("y" , nextSurface.transform.position.y+.75, "x",nextSurface.transform.position.x, "z", nextSurface.transform.position.z,"onstart","playerCantMove", "oncomplete", "playerCanMove"));
 	}
 
 	private void playerCantMove(){
