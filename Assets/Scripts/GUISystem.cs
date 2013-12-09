@@ -35,7 +35,7 @@ public class GUISystem : MonoBehaviour {
 		int newHeight = Screen.height/2 - buttonHeight/2 - spacing;
 
 		GUI.Box(new Rect(Screen.width/2 - buttonWidth/2, newHeight - 100, buttonWidth, buttonHeight),
-		        "Q*bert: A Night Forgotten");
+		        "Re*bert");
 		//if you click start it takes you to the first level	
 		if(GUI.Button(new Rect(Screen.width/2 - buttonWidth/2, newHeight, buttonWidth, buttonHeight),"Start Game")){
 			currentGUI = InGameGUI;
@@ -76,7 +76,7 @@ public class GUISystem : MonoBehaviour {
 
 	void InstructionsGUI(){
 		int newHeight = Screen.height/2 - creditsHeight/2 - spacing;
-		string text = "Controls: WASD or Arrow Keys to move. P to Pause.\n\nGoal: Light up all the platforms, while avoiding all the enemies.";
+		string text = "Q – upper-left, W – Up, E – upper-right,\nA – left D – right,\nZ – lower-left, X – down, C – lower-right\nP to Pause.\n\nGoal: Light up all the platforms, while avoiding all the enemies.";
 
 		GUILayout.BeginArea(new Rect(Screen.width / 2.0f - 200, Screen.height/2 - 100, 400, 500));
 			GUILayout.Box(text); //controls
