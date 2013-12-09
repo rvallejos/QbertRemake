@@ -14,6 +14,8 @@ public class Surface : MonoBehaviour {
 	
 	private float timer = 30.0f;
 	private bool timeExp = false;
+
+	public bool touch = false;
 	
 	public Surface up = null;
 	public Surface down = null;

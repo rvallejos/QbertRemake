@@ -1,18 +1,19 @@
 ﻿#pragma strict
 
-var timer:float = 60.0;
-var timeExp:boolean = false;
+var timer:float = 1.0;
+var timeExp:boolean = false; 
+var player:GameObject = null;
 
 function Start () {
 
 }
 
 function Update () {
-	if(timer <= 0){
+	if(timer < 0 ){
 		timer = 0;
 		timeExp = true;
 	} else {
-		timer -=Time.deltaTime;
+		timer +=Time.deltaTime;
 	}
 }
 
@@ -25,6 +26,7 @@ function OnGUI(){
 		}
 	} else {
 		GUI.Label(Rect (10,10,100,30),"Time Left: " + timer.ToString("0")+"s");
+		GUI.Label(Rect (10,30,150,30),"Tiles Touched: "+ "/20");
 	}
 }
 

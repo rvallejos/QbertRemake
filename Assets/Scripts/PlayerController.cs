@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
 	public float jumpForce = 5f;
 	public AudioClip tone = null;
 	public Surface curSurface = null;
+	public int tilesTouched = 0;
 
 	private bool canMove = true;
 	private float maxHeight = 1.5f;
@@ -25,6 +26,7 @@ public class PlayerController : MonoBehaviour {
 	private void Start () {
 		if (curSurface != null) {
 			gameObject.transform.position = new Vector3(curSurface.transform.position.x,curSurface.transform.position.y,curSurface.transform.position.z);	
+			curSurface.touch = true;
 		}
 	}
 	
@@ -213,6 +215,7 @@ public class PlayerController : MonoBehaviour {
 
 	private void jumpToSurface(Surface nextSurface){
 		iTween.MoveTo(gameObject, iTween.Hash("y" , nextSurface.transform.position.y+.75, "x",nextSurface.transform.position.x, "z", nextSurface.transform.position.z,"onstart","playerCantMove", "oncomplete", "playerCanMove"));
+		curSurface.touch = true;
 	}
 
 	private void playerCantMove(){
